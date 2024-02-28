@@ -1,0 +1,3 @@
+/Users/ludovic/Exercism/cmake-build-debug/CMakeFiles/Exercism.dir
+/Users/ludovic/Exercism/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/ludovic/Exercism/cmake-build-debug/CMakeFiles/rebuild_cache.dir
