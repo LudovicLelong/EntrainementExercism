@@ -1,14 +1,13 @@
-#include "conditionFunction.h"
-
-ConditionFunction myClass;
-
-
 // eat_ghost returns a boolean value if Pac-Man is able to eat the ghost.
 // The function should return true only if Pac-Man has a power pellet active
 // and is touching a ghost.
 bool can_eat_ghost(bool power_pellet_active, bool touching_ghost) {
     // TODO: Please implement the can_eat_ghost function
-    return myClass.functionCalaculateCondition(power_pellet_active, touching_ghost);
+    if (power_pellet_active && touching_ghost) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 // score returns a boolean value if Pac-Man scored.
@@ -16,7 +15,11 @@ bool can_eat_ghost(bool power_pellet_active, bool touching_ghost) {
 // dot.
 bool scored(bool touching_power_pellet, bool touching_dot) {
     // TODO: Please implement the scored function
-    return myClass.functionCalaculateCondition(touching_power_pellet, touching_dot);
+    if (touching_power_pellet || touching_dot) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 // lost returns a boolean value if Pac-Man loses.
@@ -24,7 +27,11 @@ bool scored(bool touching_power_pellet, bool touching_dot) {
 // does not have a power pellet active.
 bool lost(bool power_pellet_active, bool touching_ghost) {
     // TODO: Please implement the lost function
-    return myClass.functionCalaculateCondition(touching_ghost, power_pellet_active);
+    if (touching_ghost && (!power_pellet_active)) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 // won returns a boolean value if Pac-Man wins.
@@ -33,7 +40,7 @@ bool lost(bool power_pellet_active, bool touching_ghost) {
 bool won(bool has_eaten_all_dots, bool power_pellet_active,
          bool touching_ghost) {
     // TODO: Please implement the won function
-    if (has_eaten_all_dots && touching_ghost) {
+    if (has_eaten_all_dots && (!lost(power_pellet_active, touching_ghost))) {
         return true;
     } else {
         return false;
