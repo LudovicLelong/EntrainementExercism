@@ -1,4 +1,4 @@
-Je réalise le track C++ du site exercism : [https://exercism.org/dashboard](https://exercism.org/dashboard).
+Je réalise le track C++ du site exercism : [https://exercism.org/](https://exercism.org/).
 
 
 Je fais suivre dans ce dépôt Git tous les exercices réalisés.
