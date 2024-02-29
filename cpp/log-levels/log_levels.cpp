@@ -3,33 +3,30 @@
 namespace log_line {
     std::string message(std::string line) {
         // return the message
-        int level = line.find("INFO" || "WARNING" || "ERROR");
-        int goodPositionStart = level + 2;
+        // 2 for two position letter, begin message
+        int positionCroch = line.find("]") + 2;
 
-        std::string newLine = line.substr(goodPositionStart);
+        std::string myMessage = line.substr(positionCroch + 1);
 
-        return newLine;
+        return  myMessage;
+
+
     }
 
     std::string log_level(std::string line) {
         // return the log level
-        std::string arrayLog[3] = {"INFO", "WARNING", "ERROR"};
-        std::string log = "";
 
-       for (int i = 0; i < 3; i++) {
-           std::string wordLog = arrayLog[i];
+        int positioncrochStart = line.find("[") + 1;
+        int positioncrochEnd = line.find("]") - 1;
 
-            if (line.find(wordLog)) {
-                log = wordLog;
-            }
-       }
+        std::string messageError = line.substr(positioncrochStart, positioncrochEnd);
 
-        return log;
+        return messageError;
+
     }
 
     std::string reformat(std::string line) {
         // return the reformatted message
-        std::string log_line_result = log_line::message(line) + " (" + log_line::log_level(line) + ")";
-        return log_line_result;
+        return message(line) + " (" + log_level(line) + ")";
     }
 }
